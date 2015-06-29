@@ -520,6 +520,9 @@ cimld.fit <- function(cross, varcomp, qtl)
         coeff <- rbind(coeff, fit$coefficients[-(1:ncol(x0))])
     }
 
+    # Method modified from R/qtl package, http://www.rqtl.org/.
+    # Broman KW, Wu H, Sen Ś, Churchill GA (2003) R/qtl: QTL mapping in experimental crosses. Bioinformatics 19:889-890.
+
     wts <- lod * log(10)
     tot.wt <- wts[1]
     for (e in wts[-1])
@@ -546,6 +549,9 @@ cimld.fit <- function(cross, varcomp, qtl)
 
     data.frame(est=a[1:n.qtl], hsq=h, est.GxE=est.GxE)
 }
+
+# Util functions modified from R/qtl package, http://www.rqtl.org/.
+# Broman KW, Wu H, Sen Ś, Churchill GA (2003) R/qtl: QTL mapping in experimental crosses. Bioinformatics 19:889-890.
 
 wtaverage <- function(x)
 {
